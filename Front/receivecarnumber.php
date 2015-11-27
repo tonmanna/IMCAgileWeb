@@ -32,7 +32,7 @@
     <body>
         <p>หมายเลขทะเบียน</p>
        <form action="getparkingfree.php" method="POST">
-            <input type="text" value="" name="" id="number">
+            <input type="text" value="" name="" id="car_id">
 
             <input type="submit" value="Update" name="submit-btn" />
         </form>
