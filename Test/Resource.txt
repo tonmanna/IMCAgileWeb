@@ -1,0 +1,17 @@
+*** Settings ***
+Library     Selenium2Library
+
+*** Variables ***
+
+${BROWSER}              firefox
+# ${DELAY}                0.5
+${URL}                  http://localhost/IMCAgileWeb/front/index.php
+
+*** Keywords ***
+
+Open Web Page
+
+    Open Browser                       ${URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed                 ${DELAY}
+    # Page Should Contain                ${contentShouldBe}

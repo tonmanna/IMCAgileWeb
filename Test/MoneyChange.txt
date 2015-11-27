@@ -1,0 +1,65 @@
+*** Settings ***
+
+Resource        Resource.txt
+Suite Setup     Open Web Page
+# Suite Teardown  Close Browser
+
+*** Test Cases ***
+
+ทอนเงิน
+    Pick Car
+    Fee Should Be 1230
+    Recieve Money
+    Total Change Should Be 770
+    Return 500 Banknote shold be 1
+    Return 100 Banknote shold be 2
+    Return 50 Banknote shold be 1
+    Return 20 Banknote shold be 1
+    Return 10 coin shold be 0
+    Return 5 coin shold be 0
+    Return 1 coin shold be 0
+
+*** Keywords ***
+
+Type Input
+                            [Arguments]      ${id}       ${input}
+    Input Text                               id=${id}    ${input}
+
+Click Input Element
+                             [Arguments]     ${id}
+    Click Element                            id=${id}
+
+Pick Car
+    Type Input                      id-car            ณข 1597
+    Click Input Element             get-id-car
+
+Fee Should Be 1230
+    Wait Until Element Contains     id=car-payment    1230
+
+Recieve Money
+    Type Input                      id-car-payment-recieve    2000
+    Click Input Element             submit-btn
+
+Total Change Should Be 770
+    Wait Until Element Contains     id=change    770
+
+Return 500 Banknote shold be 1
+    Element Should Contains         id=note500    1
+
+Return 100 Banknote shold be 1
+    Element Should Contains         id=note100    2
+
+Return 50 Banknote shold be 1
+    Element Should Contains         id=note50    1
+
+Return 20 Banknote shold be 1
+    Element Should Contains         id=note20    1
+
+Return 10 coin shold be 0
+    Element Should Contains         id=coin10    0
+
+Return 5 coin shold be 0
+    Element Should Contains         id=coin5    0
+
+Return 1 coin shold be 0
+    Element Should Contains         id=coin1    0
