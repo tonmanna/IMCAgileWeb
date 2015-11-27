@@ -1,20 +1,11 @@
 <?php
-$servername = "188.166.236.0";
-$username = "dba";
-$password = "paboy";
-$dbname =  "park_ko";
+include 'SQLRunner.php';
+$car_id = 'ณข1597';
+// $car_id = $_POST['car_id'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "select * from 'tbl_transaction' t join tbl_cars c on c.id=t.car_id  where c.id = " . $car_id;
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-echo 'wwww';
-
-$sql = "select * from 'tbl_transaction' where 'id_car' = 'ณข1597'";
+$result = getQueryData($sql);
+dd($result);
 
 ?>
