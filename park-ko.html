@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+  <title>Park Ko</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./Resource/bootstrap.min.css" rel="stylesheet">
+  <link href="./Resource/bootstrap-toggle.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="./Resource/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./Resource/starter-template.css" rel="stylesheet">
+
+  <script src="./Resource/ie-emulation-modes-warning.js"></script>
+  <style type="text/css"></style>
+
+  <script src="./Resource/jquery.min.js"></script>
+  <script src="./Resource/bootstrap-toggle.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="../../Resource/js/vendor/jquery.min.js"><\/script>')
+  </script>
+  <script src="./Resource/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="./Resource/ie10-viewport-bug-workaround.js"></script>
+  <style media="screen">
+    table,
+    tr,
+    td {
+      text-align: center;
+      height: 100px;
+      color: white;
+      font-size: 28px;
+    }
+
+    .gogreen {
+      bgcolor: #BDDA57;
+    }
+
+    .kitty {
+      bgcolor: #F88FB0;
+    }
+    .navbar-inverse{
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://getbootstrap.com/examples/starter-template/#">Project name</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="https://getbootstrap.com/examples/starter-template/#">Home</a></li>
+          <li><a href="https://getbootstrap.com/examples/starter-template/#about">About</a></li>
+          <li><a href="https://getbootstrap.com/examples/starter-template/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div id="displayArea">
+        <!-- <table class="table table-bordered">
+          <tr>
+            <td width="20%" bgcolor="#F88FB0">601
+              <br> Lady Park</td>
+            <td width="20%" bgcolor="#BDDA57">602</td>
+            <td width="20%" bgcolor="#BDDA57">603</td>
+            <td width="20%" bgcolor="#BDDA57">604</td>
+            <td width="20%" bgcolor="#BDDA57">605</td>
+          </tr>
+        </table> -->
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var data = {};
+      $.get("ajax/test.html", function(result) {
+        data = result;
+        var output = '<table class="table table-bordered"><tr>';
+        for (var i in data.parks) {
+          if (data.parks[i].isLadyPark == "true") {
+            //output += "is lady park <br>";
+            output += '<td width="20%" bgcolor="#F88FB0">' + data.parks[i].parkNo + '<br> Lady Park</td>'
+          } else {
+            //output += "not lady park <br>";
+            output += '<td width="20%" bgcolor="#BDDA57">' + data.parks[i].parkNo + '</td>';
+          }
+        }
+        output += '</tr></table>';
+        document.getElementById("displayArea").innerHTML = output;
+      });
+
+      // var data = {
+      //   "parks": [{
+      //     "parkId": "1",
+      //     "parkNo": "601",
+      //     "isLadyPark": "false"
+      //   }, {
+      //     "parkId": "2",
+      //     "parkNo": "602",
+      //     "isLadyPark": "true"
+      //   }, {
+      //     "parkId": "3",
+      //     "parkNo": "603",
+      //     "isLadyPark": "true"
+      //   },{
+      //     "parkId": "4",
+      //     "parkNo": "604",
+      //     "isLadyPark": "false"
+      //   },{
+      //     "parkId": "5",
+      //     "parkNo": "605",
+      //     "isLadyPark": "false"
+      //   }]
+      // }
+
+      // var output = '<table class="table table-bordered"><tr>';
+      // for (var i in data.parks) {
+      //   if (data.parks[i].isLadyPark == "true") {
+      //     //output += "is lady park <br>";
+      //     output += '<td width="20%" bgcolor="#F88FB0">' + data.parks[i].parkNo + '<br> Lady Park</td>'
+      //   } else {
+      //     //output += "not lady park <br>";
+      //     output += '<td width="20%" bgcolor="#BDDA57">' + data.parks[i].parkNo + '</td>';
+      //   }
+      // }
+      // output += '</tr></table>';
+      // document.getElementById("displayArea").innerHTML = output;
+
+    })
+  </script>
+</body>
+
+</html>
