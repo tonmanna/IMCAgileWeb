@@ -15,6 +15,6 @@ if ($conn->connect_error) {
 
 echo 'wwww';
 
-$sql = "select * from 'tbl_transaction' where 'id_car' = 'ณข 1597'"
+$sql = "select * from 'tbl_transaction' where 'id_car' = 'ณข1597'";
 
 ?>
