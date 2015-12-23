@@ -55,11 +55,11 @@
 
     </head>
     <body>
-        <form class="form-inline" action="api/getparkingfee.php" method="POST">
+        <form class="form-inline" action="getparkingfree.php" method="POST">
           <div class="form-group">
             <label class="sr-only" for="exampleInputAmount">ทะเบียน</label>
             <div class="input-group">
-              <div class="input-group-addon"><img src="glyphicon glyphicon-usd"></div>
+              <div class="input-group-addon">$</div>
               <input type="text" class="form-control" id="car_id" placeholder="หมายเลขทะเบียนรถ">
             </div>
           </div>
